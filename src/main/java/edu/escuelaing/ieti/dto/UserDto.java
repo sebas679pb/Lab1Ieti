@@ -1,5 +1,8 @@
 package edu.escuelaing.ieti.dto;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import edu.escuelaing.ieti.entities.User;
 
 public class UserDto {
@@ -62,7 +65,12 @@ public class UserDto {
     }
     
     public User toEntity() {
-        return new User(id, name, email, lastName, createdAt);
+        try {
+            return new User(id, name, email, lastName, new SimpleDateFormat("dd/MM/yyyy").parse(createdAt));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
 }

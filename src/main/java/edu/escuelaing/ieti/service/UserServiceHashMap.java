@@ -1,14 +1,14 @@
 package edu.escuelaing.ieti.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+// import org.springframework.stereotype.Service;
 
 import edu.escuelaing.ieti.entities.User;
 
-@Service
 public class UserServiceHashMap implements UserService {
     
     private HashMap<String, User> userHash = new HashMap<>();
@@ -48,6 +48,16 @@ public class UserServiceHashMap implements UserService {
         }
         deleteById(userId);
         return create(user);
+    }
+
+    @Override
+    public List<User> findUsersWithNameOrLastNameLike(String queryText) {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsersCreatedAfter(Date startDate) {
+        return null;
     }
 
 }
